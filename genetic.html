@@ -422,6 +422,175 @@
             margin-bottom: 10px;
         }
 
+        /* ===== LATIHAN SOAL SECTION ===== */
+        .latihan-section {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            margin-top: 30px;
+        }
+
+        .latihan-section h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            background: linear-gradient(45deg, #ff6666, #66b3ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+        }
+
+        .question-container {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .question-container:hover {
+            transform: translateY(-3px);
+        }
+
+        .question-number {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #ffdd00;
+            margin-bottom: 15px;
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 3px solid #ff6666;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .options {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .option {
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            font-size: 1.05rem;
+        }
+
+        .option:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+        }
+
+        .option.selected {
+            background: rgba(255, 102, 102, 0.3);
+            border-color: #ff6666;
+        }
+
+        .option.correct {
+            background: rgba(102, 255, 102, 0.3);
+            border-color: #66ff66;
+        }
+
+        .option.incorrect {
+            background: rgba(255, 102, 102, 0.3);
+            border-color: #ff6666;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            display: none;
+        }
+
+        .feedback.correct {
+            background: rgba(102, 255, 102, 0.2);
+            color: #66ff66;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background: rgba(255, 102, 102, 0.2);
+            color: #ff6666;
+            display: block;
+        }
+
+        .correct-answer {
+            margin-top: 8px;
+            font-style: italic;
+            color: #66ff66;
+            display: none;
+        }
+
+        .quiz-btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .quiz-btn {
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .check-btn {
+            background: linear-gradient(45deg, #66b3ff, #4da6ff);
+            color: white;
+        }
+
+        .reset-btn {
+            background: linear-gradient(45deg, #ff6666, #ff4d4d);
+            color: white;
+        }
+
+        .result-container {
+            text-align: center;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .result-score {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+            background: linear-gradient(45deg, #ffdd00, #ff6666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .result-message {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+        }
+
         /* ===== COPYRIGHT ===== */
         .copyright {
             text-align: center;
@@ -459,6 +628,10 @@
             .visualization {
                 min-width: 100%;
             }
+            
+            .options {
+                grid-template-columns: 1fr;
+            }
         }
         
         @media (max-width: 500px) {
@@ -468,6 +641,19 @@
             
             .copyright {
                 font-size: 0.85rem;
+            }
+            
+            .latihan-section h1 {
+                font-size: 2rem;
+            }
+            
+            .question-text {
+                font-size: 1rem;
+            }
+            
+            .option {
+                padding: 12px;
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -656,9 +842,175 @@
             </div>
         </div>
 
+        <!-- ===== LATIHAN SOAL SECTION ===== -->
+        <div class="latihan-section">
+            <h1>Latihan Soal</h1>
+            
+            <div class="question-container">
+                <div class="question-number">Soal 1</div>
+                <div class="question-text">
+                    Hukum Mendel I disebut juga sebagai…
+                </div>
+                <div class="options">
+                    <div class="option" data-correct="false">A. Hukum dominansi</div>
+                    <div class="option" data-correct="true">B. Hukum segregasi</div>
+                    <div class="option" data-correct="false">C. Hukum peluang</div>
+                    <div class="option" data-correct="false">D. Hukum perpaduan bebas</div>
+                </div>
+                <div class="feedback"></div>
+                <div class="correct-answer">✓ Jawaban benar: B. Hukum segregasi</div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">Soal 2</div>
+                <div class="question-text">
+                    Menurut Hukum Mendel I, alel dari suatu sifat akan…
+                </div>
+                <div class="options">
+                    <div class="option" data-correct="false">A. Bergabung saat gamet terbentuk</div>
+                    <div class="option" data-correct="true">B. Berpisah secara bebas saat gamet terbentuk</div>
+                    <div class="option" data-correct="false">C. Tidak berubah saat fertilisasi</div>
+                    <div class="option" data-correct="false">D. Berpasangan secara acak dengan alel sifat lain</div>
+                </div>
+                <div class="feedback"></div>
+                <div class="correct-answer">✓ Jawaban benar: B. Berpisah secara bebas saat gamet terbentuk</div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">Soal 3</div>
+                <div class="question-text">
+                    Persilangan monohibrid Aa × Aa menghasilkan rasio genotipe F2…
+                </div>
+                <div class="options">
+                    <div class="option" data-correct="false">A. 9 : 3 : 3 : 1</div>
+                    <div class="option" data-correct="false">B. 3 : 1</div>
+                    <div class="option" data-correct="true">C. 1 : 2 : 1</div>
+                    <div class="option" data-correct="false">D. 1 : 1 : 0</div>
+                </div>
+                <div class="feedback"></div>
+                <div class="correct-answer">✓ Jawaban benar: C. 1 : 2 : 1</div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">Soal 4</div>
+                <div class="question-text">
+                    Fenotipe F2 dari persilangan Aa × Aa (dominansi sempurna) adalah…
+                </div>
+                <div class="options">
+                    <div class="option" data-correct="false">A. 9 : 3 : 3 : 1</div>
+                    <div class="option" data-correct="false">B. 1 : 2 : 1</div>
+                    <div class="option" data-correct="true">C. 3 : 1</div>
+                    <div class="option" data-correct="false">D. 1 : 3</div>
+                </div>
+                <div class="feedback"></div>
+                <div class="correct-answer">✓ Jawaban benar: C. 3 : 1</div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">Soal 5</div>
+                <div class="question-text">
+                    Hukum Mendel II dikenal dengan nama…
+                </div>
+                <div class="options">
+                    <div class="option" data-correct="false">A. Hukum segregasi</div>
+                    <div class="option" data-correct="true">B. Hukum perpaduan bebas</div>
+                    <div class="option" data-correct="false">C. Hukum genotipe</div>
+                    <div class="option" data-correct="false">D. Hukum dominansi</div>
+                </div>
+                <div class="feedback"></div>
+                <div class="correct-answer">✓ Jawaban benar: B. Hukum perpaduan bebas</div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">Soal 6</div>
+                <div class="question-text">
+                    Pada dihibrid RrYy, kombinasi gamet yang mungkin adalah…
+                </div>
+                <div class="options">
+                    <div class="option" data-correct="false">A. RY, YY, rr, yy</div>
+                    <div class="option" data-correct="true">B. RY, Ry, rY, ry</div>
+                    <div class="option" data-correct="false">C. R, r, Y, y saja</div>
+                    <div class="option" data-correct="false">D. Hanya RY dan ry</div>
+                </div>
+                <div class="feedback"></div>
+                <div class="correct-answer">✓ Jawaban benar: B. RY, Ry, rY, ry</div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">Soal 7</div>
+                <div class="question-text">
+                    Persilangan dihibrid RrYy × RrYy menghasilkan rasio fenotipe F2…
+                </div>
+                <div class="options">
+                    <div class="option" data-correct="false">A. 3 : 1</div>
+                    <div class="option" data-correct="false">B. 1 : 2 : 1</div>
+                    <div class="option" data-correct="false">C. 2 : 1</div>
+                    <div class="option" data-correct="true">D. 9 : 3 : 3 : 1</div>
+                </div>
+                <div class="feedback"></div>
+                <div class="correct-answer">✓ Jawaban benar: D. 9 : 3 : 3 : 1</div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">Soal 8</div>
+                <div class="question-text">
+                    Rasio 9 : 3 : 3 : 1 menunjukkan bahwa…
+                </div>
+                <div class="options">
+                    <div class="option" data-correct="false">A. Hanya satu sifat yang diamati</div>
+                    <div class="option" data-correct="true">B. Dua sifat diturunkan secara bebas</div>
+                    <div class="option" data-correct="false">C. Alel tidak mengalami segregasi</div>
+                    <div class="option" data-correct="false">D. Sifat bersifat komplementer</div>
+                </div>
+                <div class="feedback"></div>
+                <div class="correct-answer">✓ Jawaban benar: B. Dua sifat diturunkan secara bebas</div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">Soal 9</div>
+                <div class="question-text">
+                    Pada dihibrid, fenotipe kategori "3" pertama (dari rasio 9:3:3:1) adalah…
+                </div>
+                <div class="options">
+                    <div class="option" data-correct="false">A. Dominan warna dan dominan bentuk</div>
+                    <div class="option" data-correct="false">B. Resesif warna dan resesif bentuk</div>
+                    <div class="option" data-correct="true">C. Dominan warna, resesif bentuk</div>
+                    <div class="option" data-correct="false">D. Resesif warna, dominan bentuk</div>
+                </div>
+                <div class="feedback"></div>
+                <div class="correct-answer">✓ Jawaban benar: C. Dominan warna, resesif bentuk</div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-number">Soal 10</div>
+                <div class="question-text">
+                    Pernyataan yang benar tentang Hukum Mendel II adalah…
+                </div>
+                <div class="options">
+                    <div class="option" data-correct="false">A. Alel satu sifat memengaruhi pemisahan alel sifat lain</div>
+                    <div class="option" data-correct="true">B. Alel satu sifat tidak memengaruhi alel sifat lain saat gamet terbentuk</div>
+                    <div class="option" data-correct="false">C. Rasio F2 selalu 3 : 1</div>
+                    <div class="option" data-correct="false">D. Hanya terjadi pada persilangan monohibrid</div>
+                </div>
+                <div class="feedback"></div>
+                <div class="correct-answer">✓ Jawaban benar: B. Alel satu sifat tidak memengaruhi alel sifat lain saat gamet terbentuk</div>
+            </div>
+
+            <div class="quiz-btn-container">
+                <button class="quiz-btn check-btn" id="check-answers">Periksa Jawaban</button>
+                <button class="quiz-btn reset-btn" id="reset-answers">Coba Lagi</button>
+            </div>
+
+            <div class="result-container" id="result-container">
+                <div class="result-score" id="score">Skor Anda: 0 dari 10</div>
+                <div class="result-message" id="result-message">Nilai kamu bagus! Pertahankan belajar.</div>
+                <button class="quiz-btn reset-btn" id="restart-quiz">Kerjakan Ulang</button>
+            </div>
+        </div>
+
         <!-- ===== COPYRIGHT ===== -->
         <div class="copyright">
-            &copy; 2024 Jenny Lab. All rights reserved. | 
+            &copy; 2025 Jenny Lab. All rights reserved. | 
             <a href="#" onclick="alert('Jenny Lab v1.0\nCreated for educational purposes\nContact: jenny.lab@example.com')">About</a>
         </div>
     </div>
@@ -678,6 +1030,7 @@
         function init() {
             initThreeJS();
             setupEventListeners();
+            setupQuiz();
             render();
         }
 
@@ -1066,6 +1419,133 @@
                     alert(`Genotype: ${genotypeStr}\nPhenotype: ${phenotypeStr}`);
                 }
             }
+        }
+
+        // ======================
+        // QUIZ FUNCTIONS
+        // ======================
+        function setupQuiz() {
+            // Option selection
+            document.querySelectorAll('.option').forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selected class from all options in this question
+                    const questionContainer = this.closest('.question-container');
+                    questionContainer.querySelectorAll('.option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    
+                    // Hide feedback if already shown
+                    const feedback = questionContainer.querySelector('.feedback');
+                    feedback.style.display = 'none';
+                    feedback.textContent = '';
+                    feedback.classList.remove('correct', 'incorrect');
+                    
+                    // Hide correct answer display
+                    const correctAnswer = questionContainer.querySelector('.correct-answer');
+                    correctAnswer.style.display = 'none';
+                });
+            });
+            
+            // Check answers
+            document.getElementById('check-answers').addEventListener('click', function() {
+                let score = 0;
+                const questions = document.querySelectorAll('.question-container');
+                
+                questions.forEach(question => {
+                    const selectedOption = question.querySelector('.option.selected');
+                    const feedback = question.querySelector('.feedback');
+                    const correctAnswer = question.querySelector('.correct-answer');
+                    
+                    if (selectedOption) {
+                        const isCorrect = selectedOption.getAttribute('data-correct') === 'true';
+                        
+                        // Clear previous classes
+                        selectedOption.classList.remove('correct', 'incorrect');
+                        
+                        if (isCorrect) {
+                            selectedOption.classList.add('correct');
+                            feedback.textContent = '✓ Jawaban benar!';
+                            feedback.classList.add('correct');
+                            score++;
+                        } else {
+                            selectedOption.classList.add('incorrect');
+                            feedback.textContent = '✗ Jawaban salah.';
+                            feedback.classList.add('incorrect');
+                            
+                            // Show correct answer
+                            correctAnswer.style.display = 'block';
+                        }
+                        
+                        feedback.style.display = 'block';
+                    } else {
+                        feedback.textContent = '⚠️ Silakan pilih jawaban terlebih dahulu';
+                        feedback.classList.add('incorrect');
+                        feedback.style.display = 'block';
+                        
+                        // Show correct answer
+                        correctAnswer.style.display = 'block';
+                    }
+                });
+                
+                // Show result
+                const resultContainer = document.getElementById('result-container');
+                const scoreElement = document.getElementById('score');
+                const messageElement = document.getElementById('result-message');
+                
+                scoreElement.textContent = `Skor Anda: ${score} dari 10`;
+                
+                if (score === 10) {
+                    messageElement.textContent = 'Luar biasa! Kamu menguasai materi dengan sempurna!';
+                    messageElement.style.color = '#66ff66';
+                } else if (score >= 8) {
+                    messageElement.textContent = 'Sangat bagus! Pemahamanmu tentang genetika sangat baik.';
+                    messageElement.style.color = '#66ff66';
+                } else if (score >= 6) {
+                    messageElement.textContent = 'Bagus! Kamu sudah memahami sebagian besar konsep.';
+                    messageElement.style.color = '#ffdd00';
+                } else if (score >= 4) {
+                    messageElement.textContent = 'Cukup baik. Pelajari kembali materi yang masih kurang.';
+                    messageElement.style.color = '#ffdd00';
+                } else {
+                    messageElement.textContent = 'Belum optimal. Pelajari kembali materi Hukum Mendel.';
+                    messageElement.style.color = '#ff6666';
+                }
+                
+                resultContainer.style.display = 'block';
+                resultContainer.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Reset answers
+            document.getElementById('reset-answers').addEventListener('click', function() {
+                resetQuiz();
+            });
+            
+            // Restart quiz
+            document.getElementById('restart-quiz').addEventListener('click', function() {
+                resetQuiz();
+                document.getElementById('result-container').style.display = 'none';
+            });
+        }
+
+        function resetQuiz() {
+            document.querySelectorAll('.option').forEach(option => {
+                option.classList.remove('selected', 'correct', 'incorrect');
+            });
+            
+            document.querySelectorAll('.feedback').forEach(feedback => {
+                feedback.style.display = 'none';
+                feedback.textContent = '';
+                feedback.classList.remove('correct', 'incorrect');
+            });
+            
+            document.querySelectorAll('.correct-answer').forEach(answer => {
+                answer.style.display = 'none';
+            });
+            
+            document.getElementById('result-container').style.display = 'none';
         }
 
         // ======================
